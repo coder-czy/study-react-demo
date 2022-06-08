@@ -1,0 +1,14 @@
+.box{
+  width: 40%;
+  text-decoration: none;
+  margin: 0 auto;
+  list-style: none;
+}
+.box-item:hover{
+  background-color: #e4393c;
+  color: #fff;
+}
+.box-item-react:hover{
+  background-color: #ff2d;
+  color: #fff;
+}
