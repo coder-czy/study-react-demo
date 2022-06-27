@@ -1,14 +1,23 @@
-import "./index.css";
-import { useState } from "react";
+import "./index.css"
+import { useState, useEffect } from "react"
 const Count = () => {
-  const [count, setcount] = useState(0);
+  // useState
+  const [count, setcount] = useState(0)
 
-  function add() {
-    setcount(count + 1);
+  useEffect(() => {
+    document.title = `You click ${count} times`
+
+    return () => {
+      console.log("jiesu")
+    }
+  }, [count])
+
+  function add () {
+    setcount(count + 1)
   }
 
-  function reduce() {
-    setcount(count - 1);
+  function reduce () {
+    setcount(count - 1)
   }
 
   return (
@@ -21,7 +30,7 @@ const Count = () => {
         +
       </span>
     </div>
-  );
-};
+  )
+}
 
-export default Count;
+export default Count

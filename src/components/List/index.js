@@ -1,10 +1,13 @@
-import "./index.css";
-const List = (props) => {
-  let list = props?.data ?? [];
-  console.log(props);
+import "./index.css"
+const List = ({ list, sendMsg }) => {
+  // let list = props?.list ?? []
+  // console.log(sendMsg)
+  function getMsg () {
+    sendMsg('子组件传递的信息')
+  }
   return (
     <div>
-      <ul className="box">
+      <ul className="box" onClick={getMsg}>
         {list.map((v) => {
           return (
             <li
@@ -15,11 +18,15 @@ const List = (props) => {
               {v}
               {v === "React" ? <span>1111</span> : null}
             </li>
-          );
+          )
         })}
       </ul>
     </div>
-  );
-};
+  )
+}
+List.defaultProps = {
+  list: [],
+  test: 'test'
+}
 
-export default List;
+export default List
