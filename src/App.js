@@ -1,8 +1,8 @@
-
+import Meals from './components/meals'
 function App () {
   return (
-    <div className="App">
-      123
+    <div style={{ width: '750rem', height: '100vh' }}>
+      <Meals></Meals>
     </div>
   )
 }

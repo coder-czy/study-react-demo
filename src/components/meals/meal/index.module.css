@@ -1,0 +1,40 @@
+.mealBox {
+  display: flex;
+  border-bottom: 1rem solid #f2f2f2;
+  padding: 20rem;
+}
+.mealImg {
+  width: 200rem;
+  height: 200rem;
+}
+.title {
+  font-weight: normal;
+  color: #323232;
+  font-size: 32rem;
+  margin-bottom: 12rem;
+  margin-top: 12rem;
+}
+.desc {
+  font-size: 14rem;
+  color: #666;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+.priceBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12rem;
+}
+.price {
+  font-size: 12rem;
+  color: #323232;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price .num {
+  font-size: 30rem;
+  color: #000;
+}
