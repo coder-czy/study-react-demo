@@ -1,0 +1,25 @@
+.counterBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 26rem;
+}
+.plus {
+  font-size: 24rem;
+  color: #fff;
+  background: #ffcd00;
+  border-radius: 50%;
+  padding: 6rem;
+}
+.minus {
+  font-size: 24rem;
+  color: #fff;
+  background: #ffcd00;
+  border-radius: 50%;
+  padding: 6rem;
+}
+.count {
+  margin: 6rem;
+  font-size: 18rem;
+  color: #323233;
+}

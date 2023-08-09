@@ -1,0 +1,38 @@
+.cartBox {
+  height: 96rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 12rem 32rem;
+}
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  height: 72rem;
+  border-radius: 72rem;
+}
+.tablet {
+  font-size: 96rem;
+  color: #ffcd00;
+}
+.tabletBox {
+  position: absolute;
+  left: 20rem;
+  top: -12rem;
+}
+.amount {
+  font-size: 30rem;
+  color: #fff;
+}
+.account {
+  width: 180rem;
+  height: 72rem;
+  line-height: 72rem;
+  color: #fff;
+  border-radius: 72rem;
+  text-align: center;
+  background-color: #666;
+}

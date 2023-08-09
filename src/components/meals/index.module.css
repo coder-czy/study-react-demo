@@ -1,0 +1,6 @@
+.meals {
+  height: calc(100% - 96rem);
+  overflow: auto;
+  box-sizing: border-box;
+  padding-bottom: 96rem;
+}

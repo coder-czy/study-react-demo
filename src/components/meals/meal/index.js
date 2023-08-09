@@ -1,17 +1,18 @@
 import React from 'react'
 import mealCss from './index.module.css'
+import Counter from '../counter'
 
-export default function Meal () {
+export default function Meal ({ title, desc, price, img }) {
   return (
     <div className={mealCss.mealBox}>
-      <img className={mealCss.mealImg} src="/img/hamburger1.png" alt="" />
+      <img className={mealCss.mealImg} src={img} alt={title} />
       <div>
 
-        <h2 className={mealCss.title}>汉堡</h2>
-        <p className={mealCss.desc}>金黄脆辣的外皮，里面是鲜嫩油滑的鸡腿肉，搭配清爽生菜和美味沙拉</p>
+        <h2 className={mealCss.title}>{title}</h2>
+        <p className={mealCss.desc}>{desc}</p>
         <div className={mealCss.priceBox}>
-          <p className={mealCss.price}>￥<p className={mealCss.num}>12</p></p>
-          <div> - 1 +</div>
+          <p className={mealCss.price}>￥<span className={mealCss.num}>{price}</span></p>
+          <div><Counter></Counter></div>
         </div>
       </div>
     </div>

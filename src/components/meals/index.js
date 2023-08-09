@@ -1,7 +1,16 @@
 import React from 'react'
 import Meal from './meal'
-export default function Meals () {
+import mealsCss from './index.module.css'
+
+export default function Meals ({ meals }) {
   return (
-    <Meal />
+    <>
+      <div className={mealsCss.meals}>
+        {
+          meals.map(meal => <Meal {...meal} key={meal.id} />)
+        }
+
+      </div>
+    </>
   )
 }
