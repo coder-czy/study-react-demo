@@ -1,27 +1,26 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import counterCss from './index.module.css'
+import CartCtx from '../../../store/cart'
 
-function Counter () {
-  const [count, setCount] = useState(0)
-
-  const plusHandle = () => {
-    setCount(count => count + 1)
+function Counter ({ meal }) {
+  const ctx = useContext(CartCtx)
+  const add = () => {
+    ctx.addItem(meal)
   }
-  const minusHandle = () => {
-    setCount(count => count - 1)
+  const remove = () => {
+    ctx.removeItem(meal)
   }
-
   return (
     <div className={counterCss.counterBox}>
       {
-        count > 0 ? <>
-          <MinusOutlined onClick={minusHandle} className={counterCss.minus} />
-          <span className={counterCss.count}>{count}</span>
+        meal?.count > 0 ? <>
+          <MinusOutlined onClick={remove} className={counterCss.minus} />
+          <span className={counterCss.count}>{meal.count}</span>
         </> : null
       }
 
-      <PlusOutlined onClick={plusHandle} className={counterCss.plus} />
+      <PlusOutlined onClick={add} className={counterCss.plus} />
     </div>
   )
 }

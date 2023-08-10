@@ -1,0 +1,54 @@
+.detailBox {
+  position: absolute;
+  bottom: 0;
+  max-height: 70%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top-left-radius: 30rem;
+  border-top-right-radius: 30rem;
+  overflow: auto;
+  padding: 20rem;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.title {
+  color: #3223223;
+  font-size: 20rem;
+}
+.del {
+  color: #aaa;
+  font-size: 10rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.delIcon {
+  font-size: 30rem;
+  margin-right: 2rem;
+}
+.item {
+  display: flex;
+}
+.img {
+  width: 40rem;
+  height: 40rem;
+  border-radius: 8rem;
+  margin-right: 10rem;
+}
+.name {
+  color: #323232;
+  font-size: 28rem;
+}
+.priceBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price {
+  or: #323232;
+  font-size: 20rem;
+}

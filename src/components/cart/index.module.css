@@ -5,6 +5,7 @@
   left: 0;
   right: 0;
   padding: 12rem 32rem;
+  z-index: 1000;
 }
 .content {
   display: flex;
@@ -16,6 +17,9 @@
 }
 .tablet {
   font-size: 96rem;
+  color: #aaa;
+}
+.tablet.active {
   color: #ffcd00;
 }
 .tabletBox {
@@ -26,6 +30,7 @@
 .amount {
   font-size: 30rem;
   color: #fff;
+  margin-left: 120rem;
 }
 .account {
   width: 180rem;
@@ -35,4 +40,7 @@
   border-radius: 72rem;
   text-align: center;
   background-color: #666;
+}
+.account.active {
+  background-color: #ffcd00;
 }

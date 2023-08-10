@@ -7,7 +7,7 @@ export default function Meals ({ meals }) {
     <>
       <div className={mealsCss.meals}>
         {
-          meals.map(meal => <Meal {...meal} key={meal.id} />)
+          meals.map(meal => <Meal meal={meal} key={meal.id} />)
         }
 
       </div>

@@ -2,6 +2,8 @@ import { ConfigProvider } from 'antd'
 import Meals from './components/meals'
 import Search from './components/search'
 import Cart from './components/cart'
+import cartContext from './store/cart'
+import { useState } from 'react'
 
 // 模拟一组食物数据
 const MEALS_DATA = [
@@ -53,14 +55,48 @@ const MEALS_DATA = [
 ]
 
 function App () {
+  const [mealsData] = useState(MEALS_DATA)
+  const [cartData, setCartData] = useState({
+    items: [],
+    totalPrice: 0,
+    amount: 0
+  })
+
+  const addItem = (item) => {
+    let newMeal = { ...cartData }
+    newMeal.amount++
+    newMeal.totalPrice += item?.price
+    if (newMeal.items.indexOf(item) === -1) {
+      newMeal.items.push(item)
+      item.count = 1
+
+    } else {
+      item.count++
+    }
+    setCartData(newMeal)
+  }
+
+  const removeItem = (item) => {
+    let newMeal = { ...cartData }
+    newMeal.totalPrice -= item?.price
+    newMeal.amount--
+    item.count--
+    if (item.count === 0) {
+      newMeal.items.splice(newMeal.items.indexOf(item), 1)
+    }
+    setCartData(newMeal)
+  }
+
   return (
-    <ConfigProvider theme={{ token: { colorPrimary: '#ffcd00' } }}>
-      <div style={{ width: '750rem', height: '100vh', overflow: 'hidden', position: 'relative' }}>
-        <Search></Search>
-        <Meals meals={MEALS_DATA}></Meals>
-        <Cart></Cart>
-      </div>
-    </ConfigProvider>
+    <cartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+      <ConfigProvider theme={{ token: { colorPrimary: '#ffcd00' } }}>
+        <div style={{ width: '750rem', height: '100vh', overflow: 'hidden', position: 'relative' }}>
+          <Search></Search>
+          <Meals meals={mealsData}></Meals>
+          <Cart></Cart>
+        </div>
+      </ConfigProvider>
+    </cartContext.Provider>
   )
 }
 

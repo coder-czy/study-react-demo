@@ -1,21 +1,34 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import { TabletFilled } from '@ant-design/icons'
 import cartCss from './index.module.css'
 import Badge from '../badge'
+import cartContext from '../../store/cart'
+import Detail from './detail'
 
 function Cart () {
+  const cartData = useContext(cartContext)
+
+  const [showDetails, setShowDetails] = useState(false)
+
+  const toggleDetail = () => {
+    setShowDetails(!showDetails)
+  }
   return (
-    <div className={cartCss.cartBox}>
+    <div className={cartCss.cartBox} onClick={toggleDetail}>
+      {showDetails && <Detail meals={cartData.items}></Detail>}
       <div className={cartCss.content}>
         <div className={cartCss.tabletBox}>
-          <TabletFilled className={cartCss.tablet}>
+          <TabletFilled className={`${cartCss.tablet} ${(cartData.amount > 0 ? cartCss.active : null)}`}>
           </TabletFilled>
-          <Badge count={1}></Badge>
+          {
+            cartData.amount > 0 ?
+              <Badge count={cartData.amount}></Badge>
+              : null
+          }
         </div>
-        <div className={cartCss.amount}>123</div>
-        <div className={cartCss.account}>去结算</div>
+        <div className={cartCss.amount}>￥{cartData.totalPrice}</div>
+        <div onClick={(e) => { e.stopPropagation() }} className={`${cartCss.account} ${(cartData.amount > 0 ? cartCss.active : null)}`}>去结算</div>
       </div>
-
     </div>
   )
 }
