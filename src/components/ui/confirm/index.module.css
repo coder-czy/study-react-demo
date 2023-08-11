@@ -1,0 +1,23 @@
+.stage {
+  position: absolute;
+  right: 40rem;
+  left: 40rem;
+  bottom: 40%;
+  border-radius: 20rem;
+  background-color: #fff;
+}
+.text {
+  font-size: 30rem;
+  color: #322323;
+  text-align: center;
+  height: 120rem;
+  line-height: 120rem;
+  flex: 1;
+}
+.btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 80rem; */
+  padding: 0 60rem 40rem 60rem;
+}
