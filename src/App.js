@@ -55,13 +55,14 @@ const MEALS_DATA = [
 ]
 
 function App () {
-  const [mealsData] = useState(MEALS_DATA)
+  const [mealsData, setMealsData] = useState(MEALS_DATA)
   const [cartData, setCartData] = useState({
     items: [],
     totalPrice: 0,
     amount: 0
   })
 
+  // 添加商品
   const addItem = (item) => {
     let newMeal = { ...cartData }
     newMeal.amount++
@@ -76,6 +77,7 @@ function App () {
     setCartData(newMeal)
   }
 
+  // 删除商品
   const removeItem = (item) => {
     let newMeal = { ...cartData }
     newMeal.totalPrice -= item?.price
@@ -87,11 +89,36 @@ function App () {
     setCartData(newMeal)
   }
 
+  // 清空购物车 
+  const clearCart = () => {
+    let cart = {
+      items: [],
+      amount: 0,
+      totalPrice: 0
+    }
+    let meals = [...mealsData]
+    meals.forEach(meal => delete meal.count)
+    setCartData(cart)
+  }
+
+  // 搜索
+  const filterData = (keyWord) => {
+    if (!keyWord) {
+      setMealsData(MEALS_DATA)
+    } else {
+
+      let meals = [...MEALS_DATA]
+      meals = meals.filter(meal => meal.title.indexOf(keyWord) > -1)
+      // console.log(meals)
+      setMealsData(meals)
+    }
+  }
+
   return (
-    <cartContext.Provider value={{ ...cartData, addItem, removeItem }}>
+    <cartContext.Provider value={{ ...cartData, addItem, removeItem, clearCart }}>
       <ConfigProvider theme={{ token: { colorPrimary: '#ffcd00' } }}>
         <div style={{ width: '750rem', height: '100vh', overflow: 'hidden', position: 'relative' }}>
-          <Search></Search>
+          <Search filterFn={filterData}></Search>
           <Meals meals={mealsData}></Meals>
           <Cart></Cart>
         </div>

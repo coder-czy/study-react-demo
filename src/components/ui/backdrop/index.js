@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import backdropCss from './index.module.css'
 import { createPortal } from 'react-dom'
 

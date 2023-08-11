@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { TabletFilled } from '@ant-design/icons'
 import cartCss from './index.module.css'
 import Badge from '../badge'
@@ -13,6 +13,12 @@ function Cart () {
   const toggleDetail = () => {
     setShowDetails(!showDetails)
   }
+
+  useEffect(() => {
+    if (cartData.amount === 0) {
+      setShowDetails(false)
+    }
+  }, [cartData])
   return (
     <div className={cartCss.cartBox} onClick={toggleDetail}>
       {showDetails && <Detail meals={cartData.items}></Detail>}
