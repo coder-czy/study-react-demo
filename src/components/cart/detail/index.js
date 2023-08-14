@@ -17,7 +17,8 @@ function Detail ({ meals }) {
   }
 
   const confirm = () => {
-    ctx.clearCart()
+    ctx.cartDispatch({ type: 'CLEAR' })
+
   }
 
   const cancel = () => {

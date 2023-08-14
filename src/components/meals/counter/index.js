@@ -5,12 +5,15 @@ import CartCtx from '../../../store/cart'
 
 function Counter ({ meal }) {
   const ctx = useContext(CartCtx)
+  // 新增
   const add = () => {
-    ctx.addItem(meal)
+    ctx.cartDispatch({ type: 'ADD', item: meal })
   }
+  // 删除
   const remove = () => {
-    ctx.removeItem(meal)
+    ctx.cartDispatch({ type: 'REMOVE', item: meal })
   }
+
   return (
     <div className={counterCss.counterBox}>
       {
