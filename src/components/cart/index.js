@@ -11,6 +11,7 @@ function Cart () {
   const [showDetails, setShowDetails] = useState(false)
 
   const toggleDetail = () => {
+    if (cartData.amount === 0) return
     setShowDetails(!showDetails)
   }
 
@@ -21,7 +22,7 @@ function Cart () {
   }, [cartData])
   return (
     <div className={cartCss.cartBox} onClick={toggleDetail}>
-      {showDetails && <Detail meals={cartData.items}></Detail>}
+      {showDetails && cartData.amount > 0 && <Detail meals={cartData.items}></Detail>}
       <div className={cartCss.content}>
         <div className={cartCss.tabletBox}>
           <TabletFilled className={`${cartCss.tablet} ${(cartData.amount > 0 ? cartCss.active : null)}`}>

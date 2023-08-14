@@ -2,7 +2,7 @@ import React from 'react'
 import Meal from './meal'
 import mealsCss from './index.module.css'
 
-export default function Meals ({ meals }) {
+function Meals ({ meals }) {
   return (
     <>
       <div className={mealsCss.meals}>
@@ -14,3 +14,4 @@ export default function Meals ({ meals }) {
     </>
   )
 }
+export default React.memo(Meals) 

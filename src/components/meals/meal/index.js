@@ -2,7 +2,7 @@ import React from 'react'
 import mealCss from './index.module.css'
 import Counter from '../counter'
 
-export default function Meal ({ meal }) {
+function Meal ({ meal }) {
   return (
     <div className={mealCss.mealBox}>
       <img className={mealCss.mealImg} src={meal.img} alt={meal.title} />
@@ -18,3 +18,4 @@ export default function Meal ({ meal }) {
     </div>
   )
 }
+export default React.memo(Meal) 

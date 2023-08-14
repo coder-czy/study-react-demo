@@ -3,7 +3,7 @@ import Meals from './components/meals'
 import Search from './components/search'
 import Cart from './components/cart'
 import cartContext from './store/cart'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 
 // 模拟一组食物数据
 const MEALS_DATA = [
@@ -102,7 +102,8 @@ function App () {
   }
 
   // 搜索
-  const filterData = (keyWord) => {
+  const filterData = useCallback((keyWord) => {
+    console.log('callback')
     if (!keyWord) {
       setMealsData(MEALS_DATA)
     } else {
@@ -112,7 +113,7 @@ function App () {
       // console.log(meals)
       setMealsData(meals)
     }
-  }
+  }, [setMealsData])
 
   return (
     <cartContext.Provider value={{ ...cartData, addItem, removeItem, clearCart }}>

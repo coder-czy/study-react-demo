@@ -18,4 +18,4 @@ function Confirm ({ confirm, cancel, text = '' }) {
   )
 }
 
-export default Confirm
+export default React.memo(Confirm) 

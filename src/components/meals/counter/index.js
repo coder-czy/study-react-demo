@@ -25,4 +25,4 @@ function Counter ({ meal }) {
   )
 }
 
-export default Counter
+export default React.memo(Counter) 
