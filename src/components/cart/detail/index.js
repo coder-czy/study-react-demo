@@ -1,14 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import { DeleteOutlined } from '@ant-design/icons'
 import detailCss from './index.module.css'
 import Backdrop from '../../ui/backdrop'
 import Confirm from '../../ui/confirm'
 import Counter from '../../meals/counter'
-import cartCtx from '../../../store/cart'
+// import cartCtx from '../../../store/cart'
 
 function Detail ({ meals }) {
-
-  const ctx = useContext(cartCtx)
+  const dispatch = useDispatch()
+  // const ctx = useContext(cartCtx)
 
   const [showConfirm, setShowConfirm] = useState(false)
 
@@ -17,7 +18,9 @@ function Detail ({ meals }) {
   }
 
   const confirm = () => {
-    ctx.cartDispatch({ type: 'CLEAR' })
+    // ctx.cartDispatch({ type: 'CLEAR' })
+    dispatch({ type: 'CART_CLEAR' })
+    dispatch({ type: 'MEALS_CLEAR' })
 
   }
 

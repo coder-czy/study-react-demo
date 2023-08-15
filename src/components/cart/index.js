@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TabletFilled } from '@ant-design/icons'
 import cartCss from './index.module.css'
 import Badge from '../badge'
-import cartContext from '../../store/cart'
 import Detail from './detail'
+import { useSelector } from 'react-redux'
 
 function Cart () {
-  const cartData = useContext(cartContext)
-
+  const cartData = useSelector(state => state.cart)
   const [showDetails, setShowDetails] = useState(false)
 
   const toggleDetail = () => {

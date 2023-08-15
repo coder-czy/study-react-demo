@@ -1,8 +1,11 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 import Meal from './meal'
 import mealsCss from './index.module.css'
 
-function Meals ({ meals }) {
+function Meals () {
+  const { meals } = useSelector(state => state)
   return (
     <>
       <div className={mealsCss.meals}>
@@ -14,4 +17,4 @@ function Meals ({ meals }) {
     </>
   )
 }
-export default React.memo(Meals) 
+export default Meals

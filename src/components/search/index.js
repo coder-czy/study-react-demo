@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { Input } from 'antd'
+import { useDispatch } from 'react-redux'
 import { SearchOutlined } from '@ant-design/icons'
 import searchCss from './index.module.css'
 
-function Search ({ filterFn }) {
-  console.log('Search')
+function Search () {
   const [keyWord, setKeyWord] = useState('')
-
+  const dispatch = useDispatch()
   // 使用useEffect进行防抖
   useEffect(() => {
 
     const timer = setTimeout(() => {
-      filterFn(keyWord)
+      dispatch({ type: 'MEALS_FILTER', keyWord })
     }, 500)
 
     //这个函数可以称其为清理函数，会在下次Effect执行前调用
@@ -20,7 +20,7 @@ function Search ({ filterFn }) {
       clearTimeout(timer)
     }
 
-  }, [keyWord, filterFn])
+  }, [keyWord, dispatch])
 
   const searchHandle = (e) => {
     setKeyWord(e.target?.value?.trim())
@@ -32,4 +32,4 @@ function Search ({ filterFn }) {
   )
 }
 
-export default React.memo(Search) 
+export default Search
