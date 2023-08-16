@@ -66,3 +66,14 @@ const B = () => {
   `memo` 只会根据 `props` 判断是否需要重新渲染，和 `state` 和 `context` `无关，state` 或 `context` 发生变化时，组件依然会正常的进行重新渲染
 
 - `useReducer` 可以优化复杂的 `state`
+
+- redux 管理全局应用状态（redux 分支）
+  使用步骤：
+
+  1. 引入 redux 核心包
+  2. 创建 reducer 整合函数
+  3. 通过 reducer 对象创建 store
+  4. 对 store 中的 state 进行订阅
+  5. 通过 dispatch 派发 state 的操作指令
+
+- 使用 RTK 简化 redux 操作（RTK 分支）
