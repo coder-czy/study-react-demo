@@ -1,11 +1,12 @@
-import { createStore, combineReducers } from 'redux'
-import cartReducer from './cart'
-import mealsReducer from './meals'
+import { configureStore } from '@reduxjs/toolkit'
+import cartSlice from './cartSlice'
+import mealsSlice from './mealsSlice'
 
-const reducer = combineReducers({
-  cart: cartReducer,
-  meals: mealsReducer
+const store = configureStore({
+  reducer: {
+    cartData: cartSlice,
+    mealsData: mealsSlice
+  }
 })
 
-const store = createStore(reducer)
 export default store

@@ -6,7 +6,7 @@ import Detail from './detail'
 import { useSelector } from 'react-redux'
 
 function Cart () {
-  const cartData = useSelector(state => state.cart)
+  const cartData = useSelector(state => state.cartData)
   const [showDetails, setShowDetails] = useState(false)
 
   const toggleDetail = () => {

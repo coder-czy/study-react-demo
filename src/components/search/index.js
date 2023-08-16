@@ -3,6 +3,7 @@ import { Input } from 'antd'
 import { useDispatch } from 'react-redux'
 import { SearchOutlined } from '@ant-design/icons'
 import searchCss from './index.module.css'
+import { filterMeal } from '../../store/mealsSlice'
 
 function Search () {
   const [keyWord, setKeyWord] = useState('')
@@ -11,7 +12,7 @@ function Search () {
   useEffect(() => {
 
     const timer = setTimeout(() => {
-      dispatch({ type: 'MEALS_FILTER', keyWord })
+      dispatch(filterMeal({ keyWord }))
     }, 500)
 
     //这个函数可以称其为清理函数，会在下次Effect执行前调用

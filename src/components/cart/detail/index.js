@@ -6,6 +6,8 @@ import Backdrop from '../../ui/backdrop'
 import Confirm from '../../ui/confirm'
 import Counter from '../../meals/counter'
 // import cartCtx from '../../../store/cart'
+import { clearCart } from '../../../store/cartSlice'
+import { clearMeal } from '../../../store/mealsSlice'
 
 function Detail ({ meals }) {
   const dispatch = useDispatch()
@@ -19,8 +21,8 @@ function Detail ({ meals }) {
 
   const confirm = () => {
     // ctx.cartDispatch({ type: 'CLEAR' })
-    dispatch({ type: 'CART_CLEAR' })
-    dispatch({ type: 'MEALS_CLEAR' })
+    dispatch(clearCart())
+    dispatch(clearMeal())
 
   }
 

@@ -1,7 +1,10 @@
 import React from 'react'
 import { PlusOutlined, MinusOutlined } from '@ant-design/icons'
 import { useDispatch } from 'react-redux'
+
 import counterCss from './index.module.css'
+import { addCart, removeCart } from '../../../store/cartSlice'
+import { addMeal, removeMeal } from '../../../store/mealsSlice'
 // import CartCtx from '../../../store/cart'
 
 function Counter ({ meal }) {
@@ -10,14 +13,14 @@ function Counter ({ meal }) {
   // 新增
   const add = () => {
     // ctx.cartDispatch({ type: 'ADD', item: meal })
-    dispatch({ type: 'MEALS_ADD', item: meal })
-    dispatch({ type: 'CART_ADD', item: meal })
+    dispatch(addCart({ item: meal }))
+    dispatch(addMeal({ item: meal }))
   }
   // 删除
   const remove = () => {
     // ctx.cartDispatch({ type: 'REMOVE', item: meal })
-    dispatch({ type: 'MEALS_REMOVE', item: meal })
-    dispatch({ type: 'CART_REMOVE', item: meal })
+    dispatch(removeCart({ item: meal }))
+    dispatch(removeMeal({ item: meal }))
 
   }
 

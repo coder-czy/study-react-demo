@@ -5,12 +5,12 @@ import Meal from './meal'
 import mealsCss from './index.module.css'
 
 function Meals () {
-  const { meals } = useSelector(state => state)
+  const mealsData = useSelector(state => state.mealsData)
   return (
     <>
       <div className={mealsCss.meals}>
         {
-          meals.map(meal => <Meal meal={meal} key={meal.id} />)
+          mealsData.map(meal => <Meal meal={meal} key={meal.id} />)
         }
 
       </div>
